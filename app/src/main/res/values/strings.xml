@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Project</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="repeatPassword">Repeat password</string>
+    <string name="titleRegister">Registration</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="letsRegister">Register</string>
+    <string name="alreadyRegister">Already registered? Lets go back</string>
+    <string name="logIn">Login</string>
+    <string name="name">Name</string>
+    <string name="register">Not a member? Sign up now.</string>
+</resources>

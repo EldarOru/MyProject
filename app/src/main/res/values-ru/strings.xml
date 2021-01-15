@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мой проект</string>
+    <string name="email">Электронная почта</string>
+    <string name="password">Пароль</string>
+    <string name="repeatPassword">Повторите пароль</string>
+    <string name="titleRegister">Регистрация</string>
+    <string name="male">Мужчина</string>
+    <string name="female">Женщина</string>
+    <string name="letsRegister">Зарегистрироваться</string>
+    <string name="alreadyRegister">Уже зарегистрированы? Пошлите обратно</string>
+    <string name="logIn">Войти</string>
+    <string name="name">Имя</string>
+    <string name="register">Не член нашего комьюнити? Давай это исправим</string>
+</resources>
