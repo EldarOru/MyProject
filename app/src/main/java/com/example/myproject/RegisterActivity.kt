@@ -54,11 +54,12 @@ class RegisterActivity : AppCompatActivity() {
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
+                                mAuth.currentUser!!.sendEmailVerification()
                                 fireBaseUserID = mAuth.currentUser!!.uid
                                 database = FirebaseDatabase.getInstance().getReference()
                                 val user = User(email, name, checkGender(radioButton))
                                 database.child("users").child(fireBaseUserID).setValue(user)
-                                Toast.makeText(this, "You have successfully registered",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "You have successfully registered, check your email for verification",Toast.LENGTH_SHORT).show()
                                 Timer("Left", false).schedule(timerTask { startActivity(loginIntent)}, Toast.LENGTH_SHORT.toLong())
                                 //работает ли вообще эта функция..?
                                 finish()

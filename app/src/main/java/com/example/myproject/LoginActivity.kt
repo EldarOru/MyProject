@@ -38,17 +38,19 @@ class LoginActivity : AppCompatActivity() {
         registerActivityButton = findViewById(R.id.registerButton)
         loginButton.setOnClickListener {
             createNotification()
-            //Toast.makeText(this, "Пиздец...", Toast.LENGTH_SHORT).show()
             mAuth!!.signInWithEmailAndPassword(loginEmail.text.toString(), loginPassword.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
+                            if(mAuth.currentUser!!.isEmailVerified){
                             val mainIntent = Intent(this, HomeActivity::class.java)
                             fireBaseUserID = mAuth.currentUser!!.uid
                             mainIntent.putExtra("userID",fireBaseUserID)
                             startActivity(mainIntent)
                             finish()
+                            }else Toast.makeText(this@LoginActivity, "Your email is not verified",
+                                    Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this@LoginActivity, "Authentication failed.",
+                            Toast.makeText(this@LoginActivity, "Authentication failed",
                                     Toast.LENGTH_SHORT).show()
                         }
                     }

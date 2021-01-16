@@ -26,7 +26,6 @@ class HomeActivity : AppCompatActivity() {
                 user = snapshot.getValue() as HashMap<String, Any>
                 userNameText.setText(user.get("name").toString())
             }
-
             override fun onCancelled(error: DatabaseError) {
 
             }
