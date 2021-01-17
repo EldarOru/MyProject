@@ -2,6 +2,7 @@ package com.example.myproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private var fireBaseUserID: String = ""
     private lateinit var database: DatabaseReference
+    lateinit var progressBar: ProgressBar
     lateinit var registerButton: Button
     lateinit var backLoginActivity: Button
     lateinit var nameText: EditText
@@ -29,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        progressBar = findViewById(R.id.progressBarRegister)
         registerButton = findViewById(R.id.registerButtonOne)
         backLoginActivity = findViewById(R.id.backLoginActivity)
         radioGroup = findViewById(R.id.groupGender)
@@ -44,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         registerButton.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
             var selectedID = radioGroup.checkedRadioButtonId
             var email = emailText.text.toString()
             var name = nameText.text.toString()
@@ -54,6 +58,7 @@ class RegisterActivity : AppCompatActivity() {
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
+                                progressBar.visibility = View.GONE
                                 mAuth.currentUser!!.sendEmailVerification()
                                 fireBaseUserID = mAuth.currentUser!!.uid
                                 database = FirebaseDatabase.getInstance().getReference()
