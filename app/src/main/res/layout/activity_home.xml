@@ -23,6 +23,13 @@
         android:id="@+id/accelerometerTextView"
         android:text="nothing"
         android:gravity="center">
-
     </TextView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Press me"
+        android:id="@+id/playSoundButton">
+
+    </Button>
 </LinearLayout>
